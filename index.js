@@ -1,11 +1,17 @@
-import http from "http";
+import express from "express";
+import { carRouter } from "./routes/carRoutes.js";
 
-http
-  .createServer((request, response) => {
-    response.writeHead(200, { "Content-Type": "text/plain" });
-    response.end("Hello, world!");
-    console.log('Server responded with "Hello, world!"');
-  })
-  .listen(4000, () => {
-    console.log("Server is running on http://localhost:4000");
-  });
+const port = 4000;
+const app = express();
+
+// Kalder root route med request og response objekt
+app.get("/", (req, res) => {
+  res.send("Hej verden!");
+  console.log(req);
+});
+
+app.use("/cars", carRouter);
+
+app.listen(port, () => {
+  console.log(`Server kører på http://localhost:${port}`);
+});
