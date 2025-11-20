@@ -1,5 +1,6 @@
 import express from "express";
 import { carRouter } from "./Routes/carRoutes.js";
+import { departmentsRouter } from "./routes/departmentsRouter.js";
 
 const port = 4000;
 const app = express();
@@ -11,6 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/cars", carRouter);
+app.use("/departments", departmentsRouter);
 
 app.listen(port, () => {
   console.log(`Server kører på http://localhost:${port}`);
