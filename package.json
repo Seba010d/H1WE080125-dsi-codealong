@@ -1,22 +1,22 @@
 {
   "name": "h1we080125-dsi-codealong",
   "version": "1.0.0",
-  "description": "Test projekt til visning af Node",
-  "homepage": "https://github.com/Webudvikler-TechCollege/H1WE080125-dsi-codealong#readme",
-  "bugs": {
-    "url": "https://github.com/Webudvikler-TechCollege/H1WE080125-dsi-codealong/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Webudvikler-TechCollege/H1WE080125-dsi-codealong.git"
-  },
-  "license": "ISC",
-  "author": "Heinz K",
-  "type": "module",
+  "description": "test project til visning af Node",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seba010d/H1WE080125-dsi-codealong.git"
+  },
+  "author": "Sebastian A. Christiansen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seba010d/H1WE080125-dsi-codealong/issues"
+  },
+  "homepage": "https://github.com/Seba010d/H1WE080125-dsi-codealong#readme",
+  "type": "module",
   "dependencies": {
     "express": "^5.1.0"
   }

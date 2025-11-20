@@ -7,7 +7,7 @@ const app = express();
 // Kalder root route med request og response objekt
 app.get("/", (req, res) => {
   res.send("Hej verden!");
-  console.log(req);
+  //   console.log(req);
 });
 
 app.use("/cars", carRouter);
