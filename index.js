@@ -1,5 +1,5 @@
 import express from "express";
-import { carRouter } from "./routes/carRoutes.js";
+import { carRouter } from "./Routes/carRoutes.js";
 
 const port = 4000;
 const app = express();
