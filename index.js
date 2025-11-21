@@ -1,8 +1,11 @@
 import express from "express";
+import dotenv from "dotenv";
 import { carRouter } from "./Routes/carRoutes.js";
 import { departmentsRouter } from "./routes/departmentsRouter.js";
 
-const port = 4000;
+dotenv.config();
+
+const port = process.env.SERVERPORT || 3000;
 const app = express();
 
 // Kalder root route med request og response objekt
