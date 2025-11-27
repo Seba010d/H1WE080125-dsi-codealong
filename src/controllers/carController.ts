@@ -3,11 +3,11 @@ import { prisma } from '../prisma.js';
 
 export const getRecords = async (req: Request, res: Response) => {
   try {
-    const data = await prisma.user.findMany();
+    const data = await prisma.car.findMany();
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to fetch users' });
+    res.status(500).json({ error: 'Failed to fetch cars' });
   }
 };
 
@@ -19,7 +19,7 @@ export const getRecord = async (req: Request, res: Response) => {
   }
 
   try {
-    const data = await prisma.user.findUnique({
+    const data = await prisma.car.findUnique({
       where: {
         id
       }
@@ -27,25 +27,28 @@ export const getRecord = async (req: Request, res: Response) => {
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to fetch user' });
+    res.status(500).json({ error: 'Failed to fetch car' });
   }
 };
 
 
 export const createRecord = async (req: Request, res: Response) => {
 
-  const { name, email, organisationId } = req.body
+  const { category, brand, model, year, price, fueltype } = req.body
 
-  if (!name || !email || !organisationId ) {
+  if (!category || !brand || !model || !year || !price || !fueltype) {
     return res.status(400).json({ error: 'All data is required' });
   }
 
   try {
-    const data = await prisma.user.create({
-      data: { 
-        name,
-        email,
-        organisationId: Number(organisationId)
+    const data = await prisma.car.create({
+      data: {
+        category,
+        brand,
+        model,
+        year: Number(year),
+        price,
+        fueltype
       }
     })
 
@@ -59,23 +62,26 @@ export const createRecord = async (req: Request, res: Response) => {
 
 export const updateRecord = async (req: Request, res: Response) => {
   const id = Number(req.params.id)
-  const { name, email, organisationId } = req.body
+  const { category, brand, model, year, price, fueltype } = req.body
 
   if (!id) {
     return res.status(400).json({ error: 'Id has no value' });
   }
 
-  if (!name || !email || !organisationId) {
+  if (!category || !brand || !model || !year || !price || !fueltype) {
     return res.status(400).json({ error: 'All data is required' });
   }
 
   try {
-    const data = await prisma.user.update({
+    const data = await prisma.car.update({
       where: { id },
       data: {
-        name,
-        email,
-        organisationId: Number(organisationId)
+        category,
+        brand,
+        model,
+        year: Number(year),
+        price,
+        fueltype
       }
     })
     return res.status(201).json(data);
@@ -93,12 +99,14 @@ export const deleteRecord = async (req: Request, res: Response) => {
   }
 
   try {
-    const data = await prisma.user.delete({
+    const data = await prisma.car.delete({
       where: { id }
     })
     res.status(200).json({ message: 'Record deleted' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to delete record' });
+
   }
+
 }

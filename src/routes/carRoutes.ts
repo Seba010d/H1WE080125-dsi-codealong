@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createRecord, deleteRecord, getRecord, getRecords, updateRecord } from '../controllers/userController.js';
+import { createRecord, deleteRecord, getRecord, getRecords, updateRecord } from '../controllers/carController.js';
 
 const router = Router();
 router.get('/', getRecords);
@@ -8,4 +8,4 @@ router.post('/', createRecord);
 router.put('/:id', updateRecord);
 router.delete('/:id', deleteRecord);
 
-export const userRoutes = router;
+export const carRoutes = router;
